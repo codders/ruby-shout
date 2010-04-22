@@ -691,6 +691,7 @@ void Init_shout()
 
         rb_define_const(cShout, "MP3", INT2FIX(SHOUT_FORMAT_MP3));
         rb_define_const(cShout, "OGG", INT2FIX(SHOUT_FORMAT_OGG));
+        rb_define_const(cShout, "AAC", INT2FIX(SHOUT_FORMAT_AAC));
         rb_define_const(cShout, "VORBIS", INT2FIX(SHOUT_FORMAT_VORBIS));
 
         Init_shout_error();

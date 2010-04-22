@@ -4,7 +4,7 @@ require 'rake/gempackagetask'
 
 spec = Gem::Specification.new {|s|
     s.name = 'ruby-shout'
-    s.version = '2.1'
+    s.version = '2.1.1'
     s.author = 'Jared Jennings'
     s.email = 'jjenning@fastmail.fm'
     s.homepage = 'http://www.dingoskidneys.com/~jaredj/'
