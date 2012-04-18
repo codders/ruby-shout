@@ -233,8 +233,8 @@ static VALUE _sh_send(VALUE self, VALUE to_send) {
         GET_SC(self, s);
 
         Check_SafeStr(to_send);
-        err = shout_send(s->conn, (unsigned char *) (RSTRING(to_send)->ptr),
-                                  RSTRING(to_send)->len);
+        err = shout_send(s->conn, (unsigned char *) (RSTRING_PTR(to_send)),
+                                  RSTRING_LEN(to_send));
         if(err != SHOUTERR_SUCCESS) {
                 raise_shout_error(s->conn);
         }
@@ -409,7 +409,7 @@ VALUE _sh_host_eq(VALUE self, VALUE value) {
         shout_connection *s; GET_SC(self, s);
 
         Check_Type(value, T_STRING);
-        err = shout_set_host(s->conn, RSTRING(value)->ptr);
+        err = shout_set_host(s->conn, RSTRING_PTR(value));
         if(err != SHOUTERR_SUCCESS) {
                 raise_shout_error(s->conn);
         }
@@ -435,7 +435,7 @@ VALUE _sh_user_eq(VALUE self, VALUE value) {
         shout_connection *s; GET_SC(self, s);
 
         Check_Type(value, T_STRING);
-        err = shout_set_user(s->conn, RSTRING(value)->ptr);
+        err = shout_set_user(s->conn, RSTRING_PTR(value));
         if(err != SHOUTERR_SUCCESS) {
                 raise_shout_error(s->conn);
         }
@@ -448,7 +448,7 @@ VALUE _sh_pass_eq(VALUE self, VALUE value) {
         shout_connection *s; GET_SC(self, s);
 
         Check_Type(value, T_STRING);
-        err = shout_set_password(s->conn, RSTRING(value)->ptr);
+        err = shout_set_password(s->conn, RSTRING_PTR(value));
         if(err != SHOUTERR_SUCCESS) {
                 raise_shout_error(s->conn);
         }
@@ -495,7 +495,7 @@ VALUE _sh_mount_eq(VALUE self, VALUE value) {
         shout_connection *s; GET_SC(self, s);
 
         Check_Type(value, T_STRING);
-        err = shout_set_mount(s->conn, RSTRING(value)->ptr);
+        err = shout_set_mount(s->conn, RSTRING_PTR(value));
         if(err != SHOUTERR_SUCCESS) {
                 raise_shout_error(s->conn);
         }
@@ -509,7 +509,7 @@ VALUE _sh_dumpfile_eq(VALUE self, VALUE value) {
         shout_connection *s; GET_SC(self, s);
 
         Check_Type(value, T_STRING);
-        err = shout_set_dumpfile(s->conn, RSTRING(value)->ptr);
+        err = shout_set_dumpfile(s->conn, RSTRING_PTR(value));
         if(err != SHOUTERR_SUCCESS) {
                 raise_shout_error(s->conn);
         }
@@ -523,7 +523,7 @@ VALUE _sh_agent_eq(VALUE self, VALUE value) {
         shout_connection *s; GET_SC(self, s);
 
         Check_Type(value, T_STRING);
-        err = shout_set_agent(s->conn, RSTRING(value)->ptr);
+        err = shout_set_agent(s->conn, RSTRING_PTR(value));
         if(err != SHOUTERR_SUCCESS) {
                 raise_shout_error(s->conn);
         }
@@ -554,7 +554,7 @@ VALUE _sh_name_eq(VALUE self, VALUE value) {
         shout_connection *s; GET_SC(self, s);
 
         Check_Type(value, T_STRING);
-        err = shout_set_name(s->conn, RSTRING(value)->ptr);
+        err = shout_set_name(s->conn, RSTRING_PTR(value));
         if(err != SHOUTERR_SUCCESS) {
                 raise_shout_error(s->conn);
         }
@@ -567,7 +567,7 @@ VALUE _sh_url_eq(VALUE self, VALUE value) {
         shout_connection *s; GET_SC(self, s);
 
         Check_Type(value, T_STRING);
-        err = shout_set_url(s->conn, RSTRING(value)->ptr);
+        err = shout_set_url(s->conn, RSTRING_PTR(value));
         if(err != SHOUTERR_SUCCESS) {
                 raise_shout_error(s->conn);
         }
@@ -580,7 +580,7 @@ VALUE _sh_genre_eq(VALUE self, VALUE value) {
         shout_connection *s; GET_SC(self, s);
 
         Check_Type(value, T_STRING);
-        err = shout_set_genre(s->conn, RSTRING(value)->ptr);
+        err = shout_set_genre(s->conn, RSTRING_PTR(value));
         if(err != SHOUTERR_SUCCESS) {
                 raise_shout_error(s->conn);
         }
@@ -593,7 +593,7 @@ VALUE _sh_description_eq(VALUE self, VALUE value) {
         shout_connection *s; GET_SC(self, s);
 
         Check_Type(value, T_STRING);
-        err = shout_set_description(s->conn, RSTRING(value)->ptr);
+        err = shout_set_description(s->conn, RSTRING_PTR(value));
         if(err != SHOUTERR_SUCCESS) {
                 raise_shout_error(s->conn);
         }
