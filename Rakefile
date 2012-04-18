@@ -1,6 +1,5 @@
 require 'rubygems'
-Gem::manage_gems
-require 'rake/gempackagetask'
+require 'rubygems/package_task'
 
 spec = Gem::Specification.new {|s|
     s.name = 'ruby-shout'
@@ -18,6 +17,8 @@ spec = Gem::Specification.new {|s|
     s.require_path = '.'
 }
 
-Rake::GemPackageTask.new(spec) do |pkg|
-    pkg.need_tar = true
+Gem::PackageTask.new(spec) do |pkg|
+  pkg.gem_spec = spec
+  pkg.need_tar = true
 end
+
