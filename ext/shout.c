@@ -108,7 +108,7 @@ static VALUE _sh_metadata_add(VALUE self, VALUE name, VALUE value) {
         int err;
 
         Data_Get_Struct(self, shout_metadata_t, m);
-        err = shout_metadata_add(m, STR2CSTR(name), STR2CSTR(value));
+        err = shout_metadata_add(m, StringValuePtr(name), StringValuePtr(value));
 
         if(err != SHOUTERR_SUCCESS) {
 		raise_nonspecific_shout_error(err);
